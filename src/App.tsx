@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { MapView } from './views/MapView/MapView';
+import { MainMenu } from './components/MainMenu/MainMenu';
+import { Router, Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { LoginView } from './views/LoginView/LoginView';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    mapId: 1
+  };
+  constructor(props: any) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route path="/login">
+              <LoginView></LoginView>
+            </Route>
+            <Route path="/map">
+              <MapView mapId={this.state.mapId}></MapView>
+            </Route>
+            <Route path="/">
+              <Redirect to="/map"></Redirect>
+            </Route>
+          </Switch>
+          <Switch>
+            <Route path="/login">
+            </Route>
+            <Route path="/*">
+              <MainMenu></MainMenu>
+            </Route>
+
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
