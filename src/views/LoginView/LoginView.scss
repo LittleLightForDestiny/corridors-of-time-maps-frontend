@@ -1,0 +1,16 @@
+.centralized{
+    width:100%;
+    height:100%;
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .loader-container{
+        height:40px;
+    }
+    .loading-info{
+        text-align: center;
+        color:white;
+    }
+}

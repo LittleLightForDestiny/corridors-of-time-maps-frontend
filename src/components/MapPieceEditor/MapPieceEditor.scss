@@ -1,0 +1,50 @@
+.map-piece{
+    transition:fill 500ms;
+    fill:#CCCCCC;
+    stroke: #666666;
+    stroke-width: 2px;
+}
+
+.tile-icon{
+    fill:#444444;
+}
+
+.map-piece-wall{
+    stroke: #444444;
+    stroke-width: 3px;
+}
+
+.corner-code{
+    text-anchor: middle;
+    user-select:none;
+    fill:#444444;   
+}
+
+.low-zoom{
+    .corner-code{
+        display:none;
+    }
+
+    .map-piece{
+        fill:#444444;
+        stroke-width: 0px;
+    }
+    
+    .map-piece-wall{
+        stroke: #DDDDDD;
+        stroke-width: 3px;
+        &.inner{
+            display:none;
+        }
+    }
+
+    .tile-icon{
+        fill:#DDDDDD;
+    }    
+}
+
+.very-low-zoom{
+    .tile-icon{
+        display: none;
+    }
+}
